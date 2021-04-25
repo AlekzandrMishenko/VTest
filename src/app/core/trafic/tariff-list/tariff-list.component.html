@@ -1,0 +1,26 @@
+<div *ngIf="offersList?.length" class="tariff-list">
+
+  <h4 class="sort-title">Sort by</h4>
+  <div class="sort-block">
+    <button class="sort-block__element prime-btn"
+            (click)="sortByDownload()">
+      Download <span class="sort-block__text">speed</span>
+    </button>
+    <button class="sort-block__element prime-btn"
+            (click)="sortByUpload()">
+      Upload <span class="sort-block__text">speed</span>
+    </button>
+    <button class="sort-block__element prime-btn"
+            (click)="sortByPrice()">
+      Price
+    </button>
+  </div>
+
+  <ng-container *ngFor="let offer of offersList; let i = index; trackBy: trackByFn">
+    <app-tariff-list-item
+      [index]="i"
+      [offer]="offer">
+    </app-tariff-list-item>
+  </ng-container>
+
+</div>
