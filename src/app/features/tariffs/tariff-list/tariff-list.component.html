@@ -1,0 +1,14 @@
+<div *ngIf="offersList?.length" class="tariff-list">
+
+  <h4 class="sort-title">Sort by</h4>
+  <app-tariffs-sort
+    (sortByDownloadEmitter)="sortByDownload()"
+    (sortByUploadEmitter)="sortByUpload()"
+    (sortByPriceEmitter)="sortByPrice()">
+  </app-tariffs-sort>
+
+  <app-tariff-list-item *ngFor="let offer of offersList; let i = index; trackBy: trackByFn"
+    [index]="i"
+    [offer]="offer">
+  </app-tariff-list-item>
+</div>

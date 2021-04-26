@@ -1,0 +1,26 @@
+<div class="tariff-wrapper">
+  <div class="order">
+    {{ index + 1 }}.
+  </div>
+
+  <div class="tariff-name">
+    {{ offer?.product?.caption?.text }}
+  </div>
+
+  <app-tariffs-item-speed
+    class="tariff-speed"
+    [downloadSpeedAmount]="offer?.contractTerm.downloadSpeed.amount"
+    [uploadSpeedAmount]="offer?.contractTerm.uploadSpeed.amount">
+  </app-tariffs-item-speed>
+
+  <app-tariffs-item-benefit
+    class="tariff-benefit"
+    [offer]="offer">
+  </app-tariffs-item-benefit>
+
+  <app-tariffs-item-price
+    class="tariff-price"
+    [effectiveCost]="offer.cost.effectiveCost.content.text">
+  </app-tariffs-item-price>
+</div>
+

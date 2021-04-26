@@ -1,8 +1,8 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import { TariffListItemComponent } from './tariff-list-item.component';
-import {TariffSpeedModule} from "../../../utils/pipes/tariff-speed-pipe/tariff-speed.module";
-import {TariffBenefitModule} from "../../../utils/pipes/tariff-benefit-pipe/tariff-benefit.module";
+import { TariffSpeedModule } from "../../../shared/pipes/tariff-speed-pipe/tariff-speed.module";
+import { TariffBenefitModule } from "../../../shared/pipes/tariff-benefit-pipe/tariff-benefit.module";
 
 describe('TariffListItemComponent', () => {
   let component: TariffListItemComponent;

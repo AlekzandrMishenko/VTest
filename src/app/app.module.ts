@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from "@angular/common/http";
-
 import { AppRoutingModule } from './app-routing.module';
-import { LayoutModule } from "./core/layout/layout/layout.module";
+import { CommonModule } from "@angular/common";
+import { LayoutModule } from "./shared/layouts/layout/layout.module";
 
 import { AppComponent } from './app.component';
-import {CommonModule} from "@angular/common";
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [ AppComponent ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -19,6 +18,6 @@ import {CommonModule} from "@angular/common";
     LayoutModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component } from '@angular/core';
 
-import { HEADER_TITLE } from "../../../utils/constants/dataflow.consts";
+import { HEADER_TITLE } from "../../constants/dataflow.consts";
 
 @Component({
   selector: 'app-layout',

@@ -1,15 +1,15 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
+import { FeatureModule } from "../../../features/feature.module";
 import { LayoutComponent } from "./layout.component";
-import { TariffListModule } from "../../trafic/tariff-list/tariff-list.module";
 
 
 @NgModule({
   declarations: [ LayoutComponent ],
   imports: [
     CommonModule,
-    TariffListModule,
+    FeatureModule,
   ],
   exports: [ LayoutComponent ]
 })

@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TariffListComponent } from './tariff-list.component';
-import { TariffsService } from "../../../utils/services/tariffs.service";
+import { TariffsService } from "../../../shared/services/tariffs.service";
 import { EMPTY } from "rxjs";
-import { TariffListItemModule } from "../tariff-list-item/tariff-list-item.module";
-import {HttpClientModule} from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
+import { FeatureModule } from "../../feature.module";
 
 
 describe('TariffListComponent', () => {
@@ -18,7 +18,7 @@ describe('TariffListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ HttpClientModule, TariffListItemModule ],
+      imports: [ HttpClientModule, FeatureModule ],
       declarations: [ TariffListComponent ]
     })
     .compileComponents();

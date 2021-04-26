@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 
+import { Subscription } from "rxjs";
 import { filter } from "rxjs/operators";
-import { TariffsService } from "../../../utils/services/tariffs.service";
-import { IOffer, ITariffs } from "../../../utils/interfaces/tarif.interfaces";
+
+import { TariffsService } from "../../../shared/services/tariffs.service";
+import { IOffer, ITariffs } from "../../../shared/interfaces/tarif.interfaces";
 
 
 @Component({
@@ -11,9 +13,11 @@ import { IOffer, ITariffs } from "../../../utils/interfaces/tarif.interfaces";
   styleUrls: ['./tariff-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TariffListComponent implements OnInit {
+export class TariffListComponent implements OnInit, OnDestroy {
 
   public offersList: IOffer[];
+
+  private tariffList$: Subscription;
 
   constructor(
     private tariffsService: TariffsService,
@@ -21,7 +25,7 @@ export class TariffListComponent implements OnInit {
    ) { }
 
   ngOnInit(): void {
-    this.tariffsService.getTariffList()
+    this.tariffList$ = this.tariffsService.getTariffList()
       .pipe(filter(Boolean))
       .subscribe(({ offers }: ITariffs) => {
       this.offersList = offers;
@@ -29,6 +33,11 @@ export class TariffListComponent implements OnInit {
       this.cdr.markForCheck();
     })
   }
+
+  ngOnDestroy(): void {
+    this.tariffList$.unsubscribe();
+  }
+
 
   public trackByFn(i: number, item: IOffer): IOffer {
     return item;

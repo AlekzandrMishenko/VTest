@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import {IOffer, IRemark} from "../../../utils/interfaces/tarif.interfaces";
-import {BenefitsEnum} from "../../../utils/enums/benefits.enum";
+import { IOffer } from "../../../shared/interfaces/tarif.interfaces";
+
 
 @Component({
   selector: 'app-tariff-list-item',
@@ -12,9 +12,4 @@ export class TariffListItemComponent {
   @Input() public offer: IOffer;
   @Input() public index: number;
 
-  public benefitType = BenefitsEnum;
-
-  public trackByFn(i: number, item: IRemark ): IRemark {
-    return item;
-  }
 }
