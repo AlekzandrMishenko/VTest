@@ -4,7 +4,7 @@
   </div>
 
   <div class="tariff-name">
-    {{ offer.product.caption.text }}
+    {{ offer?.product?.caption?.text }}
   </div>
 
   <div class="tariff-speed">
@@ -13,7 +13,7 @@
       <div class="tariff-speed__info-block">
         <span class="ico">&#8595;</span>
         <div class="tariff-speed__speed">
-          {{ offer.contractTerm.downloadSpeed.amount | tariffSpeed }}
+          {{ offer?.contractTerm.downloadSpeed.amount | tariffSpeed }}
         </div>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <div class="tariff-speed__info-block tariff-speed__info-block_upload">
         <span class="ico">&#8593;</span>
         <div class="tariff-speed__speed">
-          {{ offer.contractTerm.uploadSpeed.amount | tariffSpeed }}
+          {{ offer?.contractTerm.uploadSpeed.amount | tariffSpeed }}
         </div>
       </div>
     </div>
@@ -30,7 +30,7 @@
   </div>
 
   <div class="tariff-benefit">
-    <ng-container *ngFor="let benefit of offer.remarks; let i = index; trackBy: trackByFn">
+    <ng-container *ngFor="let benefit of offer?.remarks; let i = index; trackBy: trackByFn">
       <ng-container [ngSwitch]="benefit.type">
         <ng-container *ngSwitchCase="benefitType.CASHBACK" class="tariff-benefit-item">
           <div class="tooltip">
@@ -73,10 +73,11 @@
 
   <div class="tariff-price">
     <p class="tariff-price__cost">
-      {{ offer.cost.effectiveCost.content.text }}
+      {{ offer?.cost.effectiveCost.content.text }}
     </p>
     <button class="tariff-price__btn">
       <span class="tariff-price__btn-label">To Tariff</span> &#62;
     </button>
   </div>
 </div>
+

@@ -22,4 +22,10 @@ describe('LayoutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it(`should have as title 'Verivox Test'`, () => {
+    const fixture = TestBed.createComponent(LayoutComponent);
+    const component = fixture.componentInstance;
+    expect(component.headerTitle).toContain('Verivox Test');
+  });
 });

@@ -1,17 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import { TariffListItemComponent } from './tariff-list-item.component';
+import {TariffSpeedModule} from "../../../utils/pipes/tariff-speed-pipe/tariff-speed.module";
+import {TariffBenefitModule} from "../../../utils/pipes/tariff-benefit-pipe/tariff-benefit.module";
 
-describe('TarifListItemComponent', () => {
+describe('TariffListItemComponent', () => {
   let component: TariffListItemComponent;
   let fixture: ComponentFixture<TariffListItemComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(async (() => {
+    TestBed.configureTestingModule({
+      imports: [
+        TariffSpeedModule,
+        TariffBenefitModule,
+      ],
       declarations: [ TariffListItemComponent ]
     })
     .compileComponents();
-  });
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TariffListItemComponent);
@@ -19,7 +25,11 @@ describe('TarifListItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create Download label', () => {
+    expect(fixture.nativeElement.querySelector('.tariff-speed__label').textContent).toContain('Download');
+  });
+
+  it('should create To Tariff button', () => {
+    expect(fixture.nativeElement.querySelector('.tariff-price__btn-label').textContent).toContain('To Tariff');
   });
 });
